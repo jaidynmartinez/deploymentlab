@@ -12,6 +12,8 @@ rollbar.log("Hewwo, wowld!");
 
 const app = express()
 
+app.use(express.json())
+
 app.get('/',function(req,res) {
   res.sendFile(path.join(__dirname, '../client/index.html'));
 });
@@ -19,11 +21,11 @@ app.get('/styles.css',function(req,res) {
     res.sendFile(path.join(__dirname, '../client/styles.css'));
 });
 
-try {
-  nonExistentFunction();
-} catch (error) {
-  console.error(error);
-};
+// try {
+//   nonExistentFunction();
+// } catch (error) {
+//   console.error(error);
+// };
 
 const port = process.env.PORT || 4005
 
